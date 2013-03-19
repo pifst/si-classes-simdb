@@ -1,0 +1,12 @@
+heroku run rake db:migrate
+Running `rake db:migrate` attached to terminal... up, run.3728
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/Rakefile:7)
+DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/Rakefile:7)
+Connecting to database specified by DATABASE_URL
+Migrating to CreateMovies (20130315034947)
+==  CreateMovies: migrating ===================================================
+-- create_table(:movies)
+NOTICE:  CREATE TABLE will create implicit sequence "movies_id_seq" for serial column "movies.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "movies_pkey" for table "movies"
+   -> 0.0904s
+==  CreateMovies: migrated (0.0905s) ==========================================
