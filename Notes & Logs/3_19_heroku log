@@ -1,0 +1,193 @@
+$ git push heroku master
+Counting objects: 321, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (173/173), done.
+Writing objects: 100% (321/321), 88.06 KiB, done.
+Total 321 (delta 128), reused 301 (delta 122)
+
+-----> Ruby/Rails app detected
+-----> Installing dependencies using Bundler version 1.3.2
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
+       Fetching gem metadata from https://rubygems.org/.........
+       Fetching gem metadata from https://rubygems.org/..
+       Installing rake (10.0.3)
+       Installing i18n (0.6.4)
+       Installing multi_json (1.6.1)
+       Installing activesupport (3.2.12)
+       Installing builder (3.0.4)
+       Installing activemodel (3.2.12)
+       Installing erubis (2.7.0)
+       Installing journey (1.0.4)
+       Installing rack (1.4.5)
+       Installing rack-cache (1.2)
+       Installing rack-test (0.6.2)
+       Installing hike (1.2.1)
+       Installing tilt (1.3.5)
+       Installing sprockets (2.2.2)
+       Installing actionpack (3.2.12)
+       Installing mime-types (1.21)
+       Installing polyglot (0.3.3)
+       Installing treetop (1.4.12)
+       Installing mail (2.4.4)
+       Installing actionmailer (3.2.12)
+       Installing arel (3.0.2)
+       Installing tzinfo (0.3.37)
+       Installing activerecord (3.2.12)
+       Installing activeresource (3.2.12)
+       Installing addressable (2.3.3)
+       Installing coffee-script-source (1.6.1)
+       Installing execjs (1.4.0)
+       Installing coffee-script (2.2.0)
+       Installing rack-ssl (1.3.3)
+       Installing json (1.7.7)
+       Installing rdoc (3.12.2)
+       Installing thor (0.17.0)
+       Installing railties (3.2.12)
+       Installing coffee-rails (3.2.2)
+       Installing deepopenstruct (0.1.2)
+       Installing haml (4.0.0)
+       Installing has_scope (0.5.1)
+       Installing responders (0.9.3)
+       Installing inherited_resources (1.3.1)
+       Installing jquery-rails (2.2.1)
+       Installing kaminari (0.14.1)
+       Installing pg (0.14.1)
+       Using bundler (1.3.2)
+       Installing rails (3.2.12)
+       Installing ruby-tmdb3 (0.3.4)
+       Installing sass (3.2.7)
+       Installing sass-rails (3.2.6)
+       Installing simple_form (2.1.0)
+       Installing twitter-bootstrap-rails (2.2.6)
+       Installing uglifier (1.3.0)
+       Your bundle is complete! It was installed into ./vendor/bundle
+       Post-install message from rdoc:
+       Depending on your version of ruby, you may need to install ruby rdoc/ri data:
+       <= 1.8.6 : unsupported
+       = 1.8.7 : gem install rdoc-data; rdoc-data --install
+       = 1.9.1 : gem install rdoc-data; rdoc-data --install
+       >= 1.9.2 : nothing to do! Yay!
+       Post-install message from haml:
+       HEADS UP! Haml 4.0 has many improvements, but also has changes that may break
+       your application:
+       * Support for Ruby 1.8.6 dropped
+       * Support for Rails 2 dropped
+       * Sass filter now always outputs <style> tags
+       * Data attributes are now hyphenated, not underscored
+       * html2haml utility moved to the html2haml gem
+       * Textile and Maruku filters moved to the haml-contrib gem
+       For more info see:
+       http://rubydoc.info/github/haml/haml/file/CHANGELOG.md
+       Post-install message from twitter-bootstrap-rails:
+       Important: You may need to add a javascript runtime to your Gemfile in order for bootstrap's LESS files to compile to CSS.
+       **********************************************
+       ExecJS supports these runtimes:
+       therubyracer - Google V8 embedded within Ruby
+       therubyrhino - Mozilla Rhino embedded within JRuby
+       Node.js
+       Apple JavaScriptCore - Included with Mac OS X
+       Microsoft Windows Script Host (JScript)
+       **********************************************
+       Cleaning up the bundler cache.
+-----> Writing config/database.yml to read from DATABASE_URL
+-----> Preparing app for Rails asset pipeline
+       Running: rake assets:precompile
+       Asset precompilation completed (27.21s)
+-----> Rails plugin injection
+       Injecting rails_log_stdout
+       Injecting rails3_serve_static_assets
+-----> Discovering process types
+       Procfile declares types      -> (none)
+       Default types for Ruby/Rails -> console, rake, web, worker
+
+-----> Compiled slug size: 10.8MB
+-----> Launching... done, v6
+       http://immense-sands-1875.herokuapp.com deployed to Heroku
+
+####
+
+Researched the issue, confirmed I'm running sass, not less Twitter-Bootstrap, which is in conflict with line 82.
+
+Tried running 'rake assets:precompile', commited changes to git, and then pushed to heroku.
+
+The log file looked better, but still failed upon going to: http://immense-sands-1875.herokuapp.com/movies
+
+#####
+$ git push heroku master
+Counting objects: 21, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (19/19), 300.89 KiB, done.
+Total 19 (delta 4), reused 0 (delta 0)
+
+-----> Ruby/Rails app detected
+-----> Installing dependencies using Bundler version 1.3.2
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
+       Using rake (10.0.3)
+       Using i18n (0.6.4)
+       Using multi_json (1.6.1)
+       Using activesupport (3.2.12)
+       Using builder (3.0.4)
+       Using activemodel (3.2.12)
+       Using erubis (2.7.0)
+       Using journey (1.0.4)
+       Using rack (1.4.5)
+       Using rack-cache (1.2)
+       Using rack-test (0.6.2)
+       Using hike (1.2.1)
+       Using tilt (1.3.5)
+       Using sprockets (2.2.2)
+       Using actionpack (3.2.12)
+       Using mime-types (1.21)
+       Using polyglot (0.3.3)
+       Using treetop (1.4.12)
+       Using mail (2.4.4)
+       Using actionmailer (3.2.12)
+       Using arel (3.0.2)
+       Using tzinfo (0.3.37)
+       Using activerecord (3.2.12)
+       Using activeresource (3.2.12)
+       Using addressable (2.3.3)
+       Using coffee-script-source (1.6.1)
+       Using execjs (1.4.0)
+       Using coffee-script (2.2.0)
+       Using rack-ssl (1.3.3)
+       Using json (1.7.7)
+       Using rdoc (3.12.2)
+       Using thor (0.17.0)
+       Using railties (3.2.12)
+       Using coffee-rails (3.2.2)
+       Using deepopenstruct (0.1.2)
+       Using haml (4.0.0)
+       Using has_scope (0.5.1)
+       Using responders (0.9.3)
+       Using inherited_resources (1.3.1)
+       Using jquery-rails (2.2.1)
+       Using kaminari (0.14.1)
+       Using pg (0.14.1)
+       Using bundler (1.3.2)
+       Using rails (3.2.12)
+       Using ruby-tmdb3 (0.3.4)
+       Using sass (3.2.7)
+       Using sass-rails (3.2.6)
+       Using simple_form (2.1.0)
+       Using twitter-bootstrap-rails (2.2.6)
+       Using uglifier (1.3.0)
+       Your bundle is complete! It was installed into ./vendor/bundle
+       Cleaning up the bundler cache.
+-----> Writing config/database.yml to read from DATABASE_URL
+-----> Preparing app for Rails asset pipeline
+       Detected manifest.yml, assuming assets were compiled locally
+-----> Rails plugin injection
+       Injecting rails_log_stdout
+       Injecting rails3_serve_static_assets
+-----> Discovering process types
+       Procfile declares types      -> (none)
+       Default types for Ruby/Rails -> console, rake, web, worker
+
+-----> Compiled slug size: 10.3MB
+-----> Launching... done, v7
+       http://immense-sands-1875.herokuapp.com deployed to Heroku
+
+To git@heroku.com:immense-sands-1875.git
+   743434b..8cccf3e  master -> master
