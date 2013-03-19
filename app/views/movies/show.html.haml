@@ -1,18 +1,42 @@
-%h1
-  = @movie.title
-  = link_to edit_movie_path(@movie), :class => 'btn' do
-    %i.icon-edit
-
-%h3= @movie.tagline
-
-.movie-data
-  %dl
-    %dt Release Date
-    %dd= @movie.released_on
-    %dt The Movie Database ID
-    %dd= @movie.tmdb_id
-    %dt Internet Movie Database ID
-    %dd= @movie.imdb_id
-
-  %p= @movie.description
-  = image_tag @movie.poster_url
+.row-fluid
+  .span12
+    %center
+      %h1
+        = @movie.title
+      %hr
+    .row-fluid
+      .span2
+      .span8
+        .row-fluid{:style => "text-align: center"}
+          .span1
+          .span10
+            %center
+              %h4
+                %i
+                  = @movie.tagline
+          .span1
+        .row-fluid
+          .span1
+            %h1
+              %i.icon-step-backward
+          .span5
+            %div{:align => "right"}
+              = image_tag @movie.poster_url, :size => "400x400"
+          .span5
+            .movie-data
+              %dl
+                %dt Movie Brief:
+                %dd= @movie.description
+                %dt Release Date:
+                %dd= distance_of_time_in_words_to_now(@movie.released_on, Time.now) + ' ago'
+                %dt The Movie Database ID:
+                %dd= @movie.tmdb_id
+                %dt Internet Movie Database ID:
+                %dd= link_to 'Link', ('http://www.imdb.com/title/' + @movie.imdb_id)
+                %dt Edit Database Entry:
+                = link_to edit_movie_path(@movie), :class => 'btn' do
+                  %i.icon-edit
+          .span1{"vertical-align" => "center"}
+            %h2
+              %i.icon-step-forward
+      .span2

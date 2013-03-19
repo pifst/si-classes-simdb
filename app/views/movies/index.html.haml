@@ -1,18 +1,24 @@
-%h1 Movies
+%h1
+  %center IMDB Ruby
 
+%hr
 %table.table.table-striped
   %thead
     %tr
-      %th Title
+      %th Movie Album Art
+      %th Movie Title
       %th Released
-      %th Tagline
-      %th Actions
+      %th Movie's Tagline
+      %th Problem?
   %tbody.preview-table
     = render @movies
 
 #movie-window-template
   .movie-info
-    %h1 {title}
+    %h2 {title}
+    %h6
+      %center
+        %i {tagline}
     %img{:src => '{poster_url}'}
 
 = paginate @movies

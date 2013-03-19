@@ -1,5 +1,7 @@
 %tr
-  %td= link_to movie.title, movie_path(movie), :class => 'preview', :data => { :id => movie.id }
-  %td= movie.released_on
+  %td= link_to image_tag(movie.poster_url, :size => "100x50"), movie_path(movie), :class => 'preview', :data => { :id => movie.id }
+  %td= link_to movie.title, movie_path(movie)
+
+  %td= distance_of_time_in_words_to_now(movie.released_on, Time.now) + ' ago'
   %td= movie.tagline
-  %td= link_to 'Edit', edit_movie_path(movie)
+  %td= link_to 'Edit', edit_movie_path(movie) %p
